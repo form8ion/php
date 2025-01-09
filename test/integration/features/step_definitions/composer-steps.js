@@ -4,5 +4,5 @@ import assert from 'node:assert';
 import {When} from '@cucumber/cucumber';
 
 When('the composer file is defined', async function () {
-  assert.deepEqual(JSON.parse(await fs.readFile('composer.json', 'utf8')), {});
+  assert.deepEqual(JSON.parse(await fs.readFile(`${this.projectRoot}/composer.json`, 'utf8')), {});
 });
