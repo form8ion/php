@@ -64,7 +64,6 @@
     "cz-conventional-changelog": "3.3.0",
     "gherkin-lint": "4.2.4",
     "husky": "9.1.7",
-    "jest-when": "3.7.0",
     "lockfile-lint": "4.14.0",
     "mock-fs": "5.4.1",
     "npm-run-all2": "7.0.2",
@@ -75,6 +74,10 @@
     "rimraf": "6.0.1",
     "rollup": "4.30.1",
     "rollup-plugin-auto-external": "2.0.0",
-    "vitest": "2.1.8"
+    "vitest": "2.1.8",
+    "vitest-when": "0.5.0"
+  },
+  "dependencies": {
+    "@travi/cli-messages": "^1.1.1"
   }
 }
