@@ -1,6 +1,6 @@
 # php
 
-PHP language plugin for the form8ion tool suite
+[PHP](https://www.php.net/) language plugin for the form8ion tool suite
 
 <!--status-badges start -->
 
@@ -32,7 +32,7 @@ PHP language plugin for the form8ion tool suite
 ### Installation
 
 ```sh
-$ npm install @form8ion/php
+$ npm install @form8ion/php --save-prod
 ```
 
 ### Example
