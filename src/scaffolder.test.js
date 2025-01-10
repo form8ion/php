@@ -6,10 +6,12 @@ import any from '@travi/any';
 import {when} from 'vitest-when';
 
 import {scaffold as scaffoldComposer} from './composer/index.js';
+import {scaffold as scaffoldPhing} from './phing/index.js';
 import scaffold from './scaffolder.js';
 
 vi.mock('deepmerge');
 vi.mock('./composer/index.js');
+vi.mock('./phing/index.js');
 
 describe('scaffolder', () => {
   it('should scaffold details of a php project', async () => {
@@ -17,9 +19,11 @@ describe('scaffolder', () => {
     const projectName = any.word();
     const description = any.sentence();
     const composerResult = any.simpleObject();
+    const phingResult = any.simpleObject();
     const results = any.simpleObject();
     when(scaffoldComposer).calledWith({projectRoot, projectName, description}).thenResolve(composerResult);
-    when(deepMerge).calledWith({}, composerResult).thenReturn(results);
+    when(scaffoldPhing).calledWith({projectRoot}).thenResolve(phingResult);
+    when(deepMerge).calledWith(composerResult, phingResult).thenReturn(results);
 
     expect(await scaffold({projectRoot, projectName, description})).toEqual(results);
   });
