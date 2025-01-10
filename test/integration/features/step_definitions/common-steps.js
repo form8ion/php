@@ -28,7 +28,7 @@ After(function () {
 });
 
 When('the project is scaffolded', async function () {
-  await scaffold({
+  this.result = await scaffold({
     projectRoot: this.projectRoot,
     projectName: this.projectName,
     description: this.projectDescription

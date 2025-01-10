@@ -13,7 +13,9 @@ describe('composer scaffolder', () => {
     const projectName = any.word();
     const description = any.sentence();
 
-    expect(await scaffoldComposer({projectRoot, projectName, description})).toEqual({});
+    expect(await scaffoldComposer({projectRoot, projectName, description})).toEqual({
+      vcsIgnore: {directories: ['vendor/']}
+    });
     expect(fs.writeFile).toHaveBeenCalledWith(
       `${projectRoot}/composer.json`,
       JSON.stringify({name: `travi/${projectName}`, description})

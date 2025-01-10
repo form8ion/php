@@ -12,3 +12,7 @@ When('the composer file is defined', async function () {
     }
   );
 });
+
+When('the vendor directory is ignored from version control', async function () {
+  assert.deepEqual(this.result.vcsIgnore.directories, ['vendor/']);
+});
