@@ -18,16 +18,16 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Setup node
-        uses: actions/setup-node@v4.0.3
+        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
         with:
           node-version-file: .nvmrc
           cache: npm
       - run: npm clean-install
       - run: corepack npm audit signatures
       - run: npm test
-      - uses: codecov/codecov-action@v4.5.0
+      - uses: codecov/codecov-action@e28ff129e5465c2c0dcc6f003fc735cb6ae0c673 # v4.5.0
   release:
     needs:
       - verify
