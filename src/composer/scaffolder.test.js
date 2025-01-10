@@ -14,7 +14,14 @@ describe('composer scaffolder', () => {
     const description = any.sentence();
 
     expect(await scaffoldComposer({projectRoot, projectName, description})).toEqual({
-      vcsIgnore: {directories: ['vendor/']}
+      vcsIgnore: {directories: ['vendor/']},
+      documentation: {
+        contributing: {
+          Dependencies: `\`\`\`sh
+composer install
+\`\`\``
+        }
+      }
     });
     expect(fs.writeFile).toHaveBeenCalledWith(
       `${projectRoot}/composer.json`,
