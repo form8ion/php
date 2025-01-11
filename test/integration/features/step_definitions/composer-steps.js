@@ -18,5 +18,8 @@ Then('the vendor directory is ignored from version control', async function () {
 });
 
 Then('initial dependencies are defined', async function () {
-  assert.deepEqual(this.result.dependencies.php.development, ['phing/phing']);
+  assert.deepEqual(
+    this.result.dependencies.php.development,
+    ['phing/phing', 'phpunit/phpunit']
+  );
 });

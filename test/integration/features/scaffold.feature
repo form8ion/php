@@ -7,3 +7,4 @@ Feature: Scaffolder
     And initial dependencies are defined
     And documentation is initialized
     And the build file is defined
+    And unit testing is configured
