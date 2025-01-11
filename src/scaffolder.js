@@ -10,7 +10,7 @@ export default async function ({projectRoot, projectName, description}) {
 
   const [composerResult, phingResult] = await Promise.all([
     scaffoldComposer({projectRoot, projectName, description}),
-    scaffoldPhing({projectRoot})
+    scaffoldPhing({projectRoot, projectName})
   ]);
 
   const mergedResults = deepMerge(composerResult, phingResult);

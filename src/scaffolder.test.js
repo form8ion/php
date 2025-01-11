@@ -26,7 +26,7 @@ describe('scaffolder', () => {
     const formattedDocumentation = any.simpleObject();
     const results = {...any.simpleObject(), documentation: mergedDocumentation};
     when(scaffoldComposer).calledWith({projectRoot, projectName, description}).thenResolve(composerResult);
-    when(scaffoldPhing).calledWith({projectRoot}).thenResolve(phingResult);
+    when(scaffoldPhing).calledWith({projectRoot, projectName}).thenResolve(phingResult);
     when(deepMerge).calledWith(composerResult, phingResult).thenReturn(results);
     when(formatDocumentation).calledWith(mergedDocumentation).thenReturn(formattedDocumentation);
 
