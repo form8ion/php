@@ -41,7 +41,8 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "run-s 'lint:js -- --fix'",
     "lint:publish": "publint --strict",
-    "test": "npm-run-all --print-label build --parallel lint:* --parallel test:*"
+    "test": "npm-run-all --print-label build --parallel lint:* --parallel test:*",
+    "lint:engines": "ls-engines"
   },
   "files": [
     "example.js",
@@ -66,6 +67,7 @@
     "husky": "9.1.7",
     "lockfile-lint": "4.14.0",
     "lodash.zip": "4.2.0",
+    "ls-engines": "0.9.3",
     "mock-fs": "5.4.1",
     "npm-run-all2": "7.0.2",
     "publint": "0.3.1",
