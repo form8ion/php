@@ -28,6 +28,8 @@ jobs:
       - run: corepack npm audit signatures
       - run: npm test
       - uses: codecov/codecov-action@v4.5.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
   release:
     needs:
       - verify
