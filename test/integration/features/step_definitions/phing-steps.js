@@ -10,7 +10,9 @@ Then('the build file is defined', async function () {
     buildFile,
     `<?xml version="1.0" encoding="UTF-8"?>
 
-<project name="${this.projectName}">
+<project name="${this.projectName}" default="verify">
+  <target name="verify">
+  </target>
 </project>
 `
   );

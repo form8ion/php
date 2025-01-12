@@ -5,7 +5,9 @@ export default async function ({projectRoot, projectName}) {
     `${projectRoot}/build.xml`,
     `<?xml version="1.0" encoding="UTF-8"?>
 
-<project name="${projectName}">
+<project name="${projectName}" default="verify">
+  <target name="verify">
+  </target>
 </project>
 `
   );
