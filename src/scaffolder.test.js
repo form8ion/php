@@ -36,7 +36,8 @@ describe('scaffolder', () => {
 
     expect(await scaffold({projectRoot, projectName, description})).toEqual({
       ...results,
-      documentation: formattedDocumentation
+      documentation: formattedDocumentation,
+      verificationCommand: './vendor/bin/phing'
     });
   });
 });

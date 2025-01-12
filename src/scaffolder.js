@@ -15,5 +15,9 @@ export default async function ({projectRoot, projectName, description}) {
     scaffoldTesting({projectRoot})
   ]));
 
-  return {...mergedResults, documentation: await formatDocumentation(mergedResults.documentation)};
+  return {
+    ...mergedResults,
+    documentation: await formatDocumentation(mergedResults.documentation),
+    verificationCommand: './vendor/bin/phing'
+  };
 }
