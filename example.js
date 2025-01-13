@@ -9,11 +9,10 @@ stubbedFs({node_modules: stubbedFs.load(resolve('node_modules'))});
 
 // #### Execute
 
-// remark-usage-ignore-next 3
+// remark-usage-ignore-next 2
 (async () => {
   await td.replaceEsm('execa');
-  // eslint-disable-next-line import/no-extraneous-dependencies,import/no-unresolved
-  const {scaffold, test, lift} = await import('@form8ion/php');
+  const {scaffold, test, lift} = await import('./lib/index.js');
 
   const projectRoot = process.cwd();
 
