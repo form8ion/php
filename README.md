@@ -15,6 +15,8 @@
 * [Usage](#usage)
   * [Installation](#installation)
   * [Example](#example)
+    * [Import](#import)
+    * [Execute](#execute)
 * [Contributing](#contributing)
   * [Dependencies](#dependencies)
   * [Verification](#verification)
@@ -40,16 +42,32 @@ $ npm install @form8ion/php --save-prod
 
 #### Import
 
-```javascript
-import {scaffold} from '@form8ion/php';
-```
-
 #### Execute
 
 ```javascript
-(async () => {
-  await scaffold({projectRoot: process.cwd()});
-})();
+  const {scaffold, test, lift} = await import('@form8ion/php');
+
+  const projectRoot = process.cwd();
+
+  await scaffold({
+    projectRoot,
+    projectName: 'name-of-the-project',
+    description: 'A short summary of the project'
+  });
+
+  if (await test({projectRoot})) {
+    await lift({
+      projectRoot,
+      results: {
+        dependencies: {
+          php: {
+            production: ['smarty/smarty'],
+            development: ['phpunit/phpunit']
+          }
+        }
+      }
+    });
+  }
 ```
 
 ## Contributing
