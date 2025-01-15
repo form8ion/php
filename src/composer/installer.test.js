@@ -23,8 +23,14 @@ describe('composer dependencies installer', () => {
     expect(execa).toHaveBeenCalledWith('composer', ['require', ...dependencies, '--dev'], {cwd: projectRoot});
   });
 
+  it('should not install dependencies when an empty list provided', async () => {
+    await install({projectRoot, dependencies: []});
+
+    expect(execa).not.toHaveBeenCalled();
+  });
+
   it('should not install dependencies when none are provided', async () => {
-    await install({projectRoot, dependencies: [], type: any.word});
+    await install({projectRoot});
 
     expect(execa).not.toHaveBeenCalled();
   });
