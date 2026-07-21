@@ -57,7 +57,7 @@
     "@form8ion/core": "^4.8.0",
     "@travi/cli-messages": "^1.1.1",
     "deepmerge": "^4.3.1",
-    "execa": "^9.5.2"
+    "execa": "^10.0.0"
   },
   "devDependencies": {
     "@cucumber/cucumber": "11.3.0",
