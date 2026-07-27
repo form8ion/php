@@ -1,6 +1,6 @@
 import {promises as fs} from 'node:fs';
 
-export default async function ({projectRoot, projectName}) {
+export default async function scaffoldPhing({projectRoot, projectName}) {
   await fs.writeFile(
     `${projectRoot}/build.xml`,
     `<?xml version="1.0" encoding="UTF-8"?>

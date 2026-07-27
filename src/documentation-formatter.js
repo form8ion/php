@@ -1,4 +1,4 @@
-export default function ({contributing}) {
+export default function formatDocumentation({contributing}) {
   return {
     contributing: Object.entries(contributing)
       .map(([heading, content]) => `### ${heading}

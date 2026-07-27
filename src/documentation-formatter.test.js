@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest';
 import any from '@travi/any';
+/* eslint-disable-next-line depend/ban-dependencies */
 import zip from 'lodash.zip';
 
 import formatDocumentation from './documentation-formatter.js';

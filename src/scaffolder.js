@@ -6,7 +6,7 @@ import {scaffold as scaffoldPhing} from './phing/index.js';
 import {scaffold as scaffoldTesting} from './testing/index.js';
 import formatDocumentation from './documentation-formatter.js';
 
-export default async function ({projectRoot, projectName, description}) {
+export default async function scaffold({projectRoot, projectName, description}) {
   info('Initializing PHP project');
 
   const mergedResults = deepMerge.all(await Promise.all([

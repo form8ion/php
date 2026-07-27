@@ -9,7 +9,7 @@ async function manageDependencies(dependencies, projectRoot) {
   }
 }
 
-export default async function ({projectRoot, results: {dependencies}}) {
+export default async function lift({projectRoot, results: {dependencies}}) {
   await manageDependencies(dependencies, projectRoot);
 
   return {};

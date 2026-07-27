@@ -1,3 +1,4 @@
+/* eslint-disable-next-line depend/ban-dependencies */
 import {execa} from 'execa';
 
 import {describe, it, expect, vi} from 'vitest';
