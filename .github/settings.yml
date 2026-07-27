@@ -1,15 +1,12 @@
 _extends: .github
-
 repository:
   name: php
   description: PHP language plugin for the form8ion tool suite
   private: false
-  homepage: https://npm.im/@form8ion/php
-
+  homepage: https://www.npmjs.com/package/@form8ion/php
 branches:
   - name: master
-    protection:
-
+    protection: null
 rulesets:
   - name: prevent destruction of the default branch
     target: branch
@@ -17,19 +14,18 @@ rulesets:
     conditions:
       ref_name:
         include:
-          - "~DEFAULT_BRANCH"
+          - ~DEFAULT_BRANCH
         exclude: []
     rules:
       - type: deletion
       - type: non_fast_forward
-
   - name: verification must pass
     target: branch
     enforcement: active
     conditions:
       ref_name:
         include:
-          - "~DEFAULT_BRANCH"
+          - ~DEFAULT_BRANCH
         exclude: []
     rules:
       - type: required_status_checks

@@ -10,7 +10,7 @@
   "author": "Matt Travi <npm@travi.org> (https://matt.travi.org)",
   "repository": "form8ion/php",
   "bugs": "https://github.com/form8ion/php/issues",
-  "homepage": "https://npm.im/@form8ion/php",
+  "homepage": "https://www.npmjs.com/package/@form8ion/php",
   "runkitExampleFilename": "./example.js",
   "exports": "./lib/index.js",
   "main": "./lib/index.js",
