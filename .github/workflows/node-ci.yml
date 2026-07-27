@@ -20,11 +20,8 @@ jobs:
     strategy:
       matrix:
         node:
-          - 18.19.0
-          - 20.6.1
-          - 22.0.0
-          - 22
-          - 24
+          - 22.22.2
+          - 24.15.0
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup node
