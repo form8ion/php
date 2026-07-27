@@ -1,15 +1,14 @@
 /* eslint-disable-next-line depend/ban-dependencies */
 import {execa} from 'execa';
-import {info, warn} from '@travi/cli-messages';
 
-export default async function installDependencies({projectRoot, dependencies = [], type}) {
+export default async function installDependencies({projectRoot, dependencies = [], type}, {logger}) {
   if (dependencies.length) {
-    info(`Installing ${type} dependencies`, {level: 'secondary'});
+    logger.info(`Installing ${type} dependencies`, {level: 'secondary'});
 
     await execa(
       'composer',
       ['require', ...dependencies, ...'development' === type ? ['--dev'] : []],
       {cwd: projectRoot}
     );
-  } else warn(`No ${type} dependencies to install`);
+  } else logger.warn(`No ${type} dependencies to install`);
 }

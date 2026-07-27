@@ -59,7 +59,6 @@
   "packageManager": "npm@11.18.0+sha512.4faecce0be70366d1c67b1012c4adc1246354a6cc45bf589f92003073b05518d547403df1475c542d67a4845e22b4fafcd7cac0af02c7a96cc6814f09eb003fb",
   "dependencies": {
     "@form8ion/core": "^4.8.0",
-    "@travi/cli-messages": "^1.1.1",
     "deepmerge": "^4.3.1",
     "execa": "^10.0.0"
   },
@@ -73,6 +72,7 @@
     "@vitest/coverage-v8": "3.2.7",
     "chai": "6.2.2",
     "cz-conventional-changelog": "3.3.0",
+    "debug": "4.4.3",
     "gplint": "2.5.2",
     "husky": "9.1.7",
     "lockfile-lint": "5.0.0",

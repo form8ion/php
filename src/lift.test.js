@@ -9,15 +9,16 @@ vi.mock('./composer/index.js');
 
 describe('lifter', () => {
   const projectRoot = any.string();
+  const logger = any.simpleObject();
 
   it('should not attempt to install dependencies when none are included in the results', async () => {
-    await lift({projectRoot, results: any.simpleObject()});
+    await lift({projectRoot, results: any.simpleObject()}, {logger});
 
     expect(installDependencies).not.toHaveBeenCalled();
   });
 
   it('should not attempt to install dependencies when none are included in the results', async () => {
-    await lift({projectRoot, results: {dependencies: any.simpleObject()}});
+    await lift({projectRoot, results: {dependencies: any.simpleObject()}}, {logger});
 
     expect(installDependencies).not.toHaveBeenCalled();
   });
@@ -25,21 +26,22 @@ describe('lifter', () => {
   it('should lift the project', async () => {
     const productionDependencies = any.simpleObject();
     const developmentDependencies = any.simpleObject();
-    const results = await lift({
-      projectRoot,
-      results: {dependencies: {php: {production: productionDependencies, development: developmentDependencies}}}
-    });
+    const results = await lift(
+      {
+        projectRoot,
+        results: {dependencies: {php: {production: productionDependencies, development: developmentDependencies}}}
+      },
+      {logger}
+    );
 
     expect(results).toEqual({});
-    expect(installDependencies).toHaveBeenCalledWith({
-      projectRoot,
-      dependencies: productionDependencies,
-      type: 'production'
-    });
-    expect(installDependencies).toHaveBeenCalledWith({
-      projectRoot,
-      dependencies: developmentDependencies,
-      type: 'development'
-    });
+    expect(installDependencies).toHaveBeenCalledWith(
+      {projectRoot, dependencies: productionDependencies, type: 'production'},
+      {logger}
+    );
+    expect(installDependencies).toHaveBeenCalledWith(
+      {projectRoot, dependencies: developmentDependencies, type: 'development'},
+      {logger}
+    );
   });
 });

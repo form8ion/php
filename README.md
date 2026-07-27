@@ -48,12 +48,18 @@ $ npm install @form8ion/php --save-prod
   const {scaffold, test, lift} = await import('@form8ion/php');
 
   const projectRoot = process.cwd();
+  const logger = {
+    info: () => undefined,
+    success: () => undefined,
+    warn: () => undefined,
+    error: () => undefined
+  };
 
   await scaffold({
     projectRoot,
     projectName: 'name-of-the-project',
     description: 'A short summary of the project'
-  });
+  }, {logger});
 
   if (await test({projectRoot})) {
     await lift({
@@ -66,7 +72,7 @@ $ npm install @form8ion/php --save-prod
           }
         }
       }
-    });
+    }, {logger});
   }
 ```
 

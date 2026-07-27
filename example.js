@@ -15,12 +15,18 @@ stubbedFs({node_modules: stubbedFs.load(resolve('node_modules'))});
   const {scaffold, test, lift} = await import('./lib/index.js');
 
   const projectRoot = process.cwd();
+  const logger = {
+    info: () => undefined,
+    success: () => undefined,
+    warn: () => undefined,
+    error: () => undefined
+  };
 
   await scaffold({
     projectRoot,
     projectName: 'name-of-the-project',
     description: 'A short summary of the project'
-  });
+  }, {logger});
 
   if (await test({projectRoot})) {
     await lift({
@@ -33,7 +39,7 @@ stubbedFs({node_modules: stubbedFs.load(resolve('node_modules'))});
           }
         }
       }
-    });
+    }, {logger});
   }
 // remark-usage-ignore-next
 })();

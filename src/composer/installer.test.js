@@ -11,27 +11,31 @@ vi.mock('execa');
 describe('composer dependencies installer', () => {
   const projectRoot = any.string();
   const dependencies = any.listOf(any.word);
+  const logger = {
+    info: () => undefined,
+    warn: () => undefined
+  };
 
   it('should install the provided dependencies', async () => {
-    await install({projectRoot, dependencies, type: any.word});
+    await install({projectRoot, dependencies, type: any.word}, {logger});
 
     expect(execa).toHaveBeenCalledWith('composer', ['require', ...dependencies], {cwd: projectRoot});
   });
 
   it('should install the provided development dependencies', async () => {
-    await install({projectRoot, dependencies, type: 'development'});
+    await install({projectRoot, dependencies, type: 'development'}, {logger});
 
     expect(execa).toHaveBeenCalledWith('composer', ['require', ...dependencies, '--dev'], {cwd: projectRoot});
   });
 
   it('should not install dependencies when an empty list provided', async () => {
-    await install({projectRoot, dependencies: []});
+    await install({projectRoot, dependencies: []}, {logger});
 
     expect(execa).not.toHaveBeenCalled();
   });
 
   it('should not install dependencies when none are provided', async () => {
-    await install({projectRoot});
+    await install({projectRoot}, {logger});
 
     expect(execa).not.toHaveBeenCalled();
   });

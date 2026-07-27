@@ -34,7 +34,7 @@ describe('scaffolder', () => {
     when(deepMerge.all).calledWith([composerResult, phingResult, testingResult]).thenReturn(results);
     when(formatDocumentation).calledWith(mergedDocumentation).thenReturn(formattedDocumentation);
 
-    expect(await scaffold({projectRoot, projectName, description})).toEqual({
+    expect(await scaffold({projectRoot, projectName, description}, {logger: {info: () => undefined}})).toEqual({
       ...results,
       documentation: formattedDocumentation,
       verificationCommand: './vendor/bin/phing'
